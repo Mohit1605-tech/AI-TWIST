@@ -30,6 +30,96 @@ db_manager = DatabaseManager(DB_FILE_PATH)
 # Initialize AI Coach
 ai_coach = AICoach()
 
+def create_fallback_twister(language, difficulty, theme, focus_sound):
+    language_fallbacks = {
+        "Tamil": {
+            "text": "யாழ்ப்பாயாத்து பலாப்பழம் வழுக்கி விழுந்தது.",
+            "meaning": "The Jaffna jackfruit slipped and fell (emphasizes the retroflex 'zha' sound unique to Tamil).",
+            "transliteration": "Yaazhpaanathu palaapazham vazhukki vizhundhadhu.",
+            "focus": "ழ (zha)"
+        },
+        "Telugu": {
+            "text": "కాకి కాక కాకికి కాక కాకపోతే కాకికి కాక మరేమిటి?",
+            "meaning": "If a crow doesn't feel hot, who else would feel hot if not a crow? (utilizes phonetic play on ka-ka).",
+            "transliteration": "Kaaki kaaka kaakiki kaaka kaakapothe kaakiki kaaka maremiti?",
+            "focus": "క (ka)"
+        },
+        "Kannada": {
+            "text": "ಕಾಗೆ ಪುಕ್ಕ ಗುಬ್ಬಿ ಪುಕ್ಕ",
+            "meaning": "Crow's feather, sparrow's feather (alternating 'pukka' with birds).",
+            "transliteration": "Kaage pukka gubbi pukka",
+            "focus": "P (pukka)"
+        },
+        "Hindi": {
+            "text": "सत्तर शेरनी शीशे में शर्मीले सियार को सताती हैं।",
+            "meaning": "Seventy lionesses tease a shy jackal in the mirror.",
+            "transliteration": "Sattar sherni sheeshe mein sharmile siyaar ko sataati hain.",
+            "focus": "Sh / S (श / स)"
+        },
+        "Spanish": {
+            "text": "Tres tristes tigres tragaban trigo en un trigal en tres tristes trastos.",
+            "meaning": "Three sad tigers were swallowing wheat in a wheat field in three sad dishes.",
+            "transliteration": "Tres tristes tigres tragaban trigo en un trigal en tres tristes trastos.",
+            "focus": "Tr"
+        },
+        "French": {
+            "text": "Un chasseur sachant chasser doit savoir chasser sans son chien.",
+            "meaning": "A hunter who knows how to hunt must know how to hunt without his dog.",
+            "transliteration": "Un chasseur sachant chasser doit savoir chasser sans son chien.",
+            "focus": "Ch / S"
+        },
+        "German": {
+            "text": "Fischers Fritz fischt frische Fische, frische Fische fischt Fischers Fritz.",
+            "meaning": "Fisherman Fritz is fishing for fresh fish, fresh fish are fished by Fisherman Fritz.",
+            "transliteration": "Fischers Fritz fischt frische Fische, frische Fische fischt Fischers Fritz.",
+            "focus": "F"
+        },
+        "English": {
+            "text": "Super silly snakes singing songs about S.",
+            "meaning": "A generated fallback tongue twister focusing on S.",
+            "transliteration": "Super silly snakes singing songs about S.",
+            "focus": "S"
+        }
+    }
+
+    letters = focus_sound.upper() if focus_sound else "S"
+    fallback_text = ""
+    fallback_transliteration = ""
+    fallback_meaning = ""
+    focus_desc = letters
+
+    if language in language_fallbacks:
+        fallback_text = language_fallbacks[language]["text"]
+        fallback_meaning = language_fallbacks[language]["meaning"]
+        fallback_transliteration = language_fallbacks[language]["transliteration"]
+        focus_desc = language_fallbacks[language]["focus"]
+    else:
+        fallback_themes = {
+            "Animals": ["silly snakes singing songs", "fidgety frogs fishing flying flies", "crazy cats cooking carrots"],
+            "Food": ["tasty tacos tumbling town", "sweet strawberry syrup sliding slowly", "greasy garlic grapes glowing green"],
+            "SciFi": ["robotic rovers running rusty rings", "alien astronauts altering active atmosphere", "cosmic comets crashing cold craters"]
+        }
+        themes_list = fallback_themes.get(theme, fallback_themes["Animals"])
+        import random
+        rand_phrase = random.choice(themes_list)
+        fallback_text = f"Super silly {rand_phrase}. Specialized speech testing sound {letters} repetitively."
+        fallback_meaning = f"A generated story focusing heavily on the sound of the letter '{letters}' in a {theme} setting."
+        fallback_transliteration = fallback_text
+
+    return {
+        "id": f"gen-{int(time.time() * 1000)}",
+        "text": fallback_text,
+        "language": language,
+        "difficulty": difficulty,
+        "category": theme,
+        "focusSound": focus_desc,
+        "meaning": fallback_meaning,
+        "transliteration": fallback_transliteration,
+        "likes": 0,
+        "attemptCount": 0,
+        "createdAt": datetime.now().isoformat() + "Z"
+    }
+
 @app.route("/api/health", methods=["GET"])
 def health():
     """Simple service health probe."""
@@ -376,7 +466,17 @@ def generate_twister():
 
     except Exception as e:
         print("Error during tongue twister generation:", e)
-        return jsonify({"error": str(e)}), 500
+
+        # If requests or Gemini fail on Render, fallback to a safe local twister.
+        fallback_twister = create_fallback_twister(language, difficulty, theme, focus_sound)
+        db_manager.add_tongue_twister(fallback_twister)
+
+        return jsonify({
+            "success": True,
+            "twister": fallback_twister,
+            "isFallback": True,
+            "error": str(e)
+        }), 200
 
 @app.route("/api/stats", methods=["GET"])
 def get_stats():
