@@ -362,7 +362,8 @@ def generate_twister():
             fallback_themes = {
                 "Animals": ["silly snakes singing songs", "fidgety frogs fishing flying flies", "crazy cats cooking carrots"],
                 "Food": ["tasty tacos tumbling town", "sweet strawberry syrup sliding slowly", "greasy garlic grapes glowing green"],
-                "SciFi": ["robotic rovers running rusty rings", "alien astronauts altering active atmosphere", "cosmic comets crashing cold craters"]
+                "SciFi": ["robotic rovers running rusty rings", "alien astronauts altering active atmosphere", "cosmic comets crashing cold craters"],
+                "General": ["silly snakes singing songs", "tasty tacos tumbling town", "robotic rovers running rusty rings"]
             }
             themes_list = fallback_themes.get(theme, fallback_themes["General"])
             import random
