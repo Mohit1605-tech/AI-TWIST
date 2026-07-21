@@ -1,0 +1,6 @@
+{
+  "name": "AI Tongue Twister Generator",
+  "description": "Generate custom tongue twisters with Gemini and practice them using real-time speech recognition and performance tracking.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

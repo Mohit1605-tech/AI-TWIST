@@ -1,0 +1,140 @@
+{
+  "tongueTwisters": [
+    {
+      "id": "classic-1",
+      "text": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked.",
+      "language": "English",
+      "difficulty": "medium",
+      "category": "Food",
+      "focusSound": "P",
+      "meaning": "A playful story about Peter gathering pickled peppers from a field.",
+      "likes": 24,
+      "attemptCount": 5,
+      "createdAt": "2026-07-16T06:42:41.337601Z"
+    },
+    {
+      "id": "classic-2",
+      "text": "She sells seashells by the seashore. The shells she sells are surely seashells.",
+      "language": "English",
+      "difficulty": "easy",
+      "category": "Nature",
+      "focusSound": "S",
+      "meaning": "A vendor lady selling coastal shells on the sandy beach.",
+      "likes": 42,
+      "attemptCount": 8,
+      "createdAt": "2026-07-17T06:42:41.337601Z"
+    },
+    {
+      "id": "classic-3",
+      "text": "How much wood would a woodchuck chuck if a woodchuck could chuck wood?",
+      "language": "English",
+      "difficulty": "hard",
+      "category": "Animals",
+      "focusSound": "W",
+      "meaning": "A funny, hypothetical calculation regarding a rodent's capability to move timber.",
+      "likes": 31,
+      "attemptCount": 3,
+      "createdAt": "2026-07-18T06:42:41.337601Z"
+    },
+    {
+      "id": "classic-4",
+      "text": "Six sleek swans swam swiftly southwards.",
+      "language": "English",
+      "difficulty": "easy",
+      "category": "Animals",
+      "focusSound": "Sw",
+      "meaning": "Six elegant birds flying or floating in a fast direction down south.",
+      "likes": 12,
+      "attemptCount": 12,
+      "createdAt": "2026-07-19T06:42:41.337601Z"
+    },
+    {
+      "id": "classic-tamil",
+      "text": "யாழ்ப்பாணத்து பலாப்பழம் வழுக்கி விழுந்தது.",
+      "language": "Tamil",
+      "difficulty": "hard",
+      "category": "Food",
+      "focusSound": "ழ (zha)",
+      "meaning": "The Jaffna jackfruit slipped and fell (emphasizes the retroflex 'zha' sound unique to Tamil).",
+      "likes": 18,
+      "attemptCount": 2,
+      "createdAt": "2026-07-18T06:42:41.337601Z"
+    },
+    {
+      "id": "classic-telugu",
+      "text": "కాకి కాక కాకికి కాక కాకపోతే కాకికి కాక మరేమిటి?",
+      "language": "Telugu",
+      "difficulty": "medium",
+      "category": "Animals",
+      "focusSound": "క (ka)",
+      "meaning": "If a crow doesn't feel hot, who else would feel hot if not a crow? (utilizes phonetic play on ka-ka).",
+      "likes": 15,
+      "attemptCount": 1,
+      "createdAt": "2026-07-18T06:42:41.337601Z"
+    },
+    {
+      "id": "classic-kannada",
+      "text": "ಕಾಗೆ ಪುಕ್ಕ ಗುಬ್ಬಿ ಪುಕ್ಕ",
+      "language": "Kannada",
+      "difficulty": "easy",
+      "category": "Animals",
+      "focusSound": "P (pukka)",
+      "meaning": "Crow's feather, sparrow's feather (alternating 'pukka' with birds).",
+      "likes": 21,
+      "attemptCount": 3,
+      "createdAt": "2026-07-19T06:42:41.337601Z"
+    }
+  ],
+  "practiceAttempts": [
+    {
+      "id": "attempt-1",
+      "twisterId": "classic-2",
+      "twisterText": "She sells seashells by the seashore. The shells she sells are surely seashells.",
+      "spokenText": "She sell sea shells by the sea shore. The shells she sell are surely sea shells.",
+      "accuracy": 94,
+      "wpm": 82,
+      "durationMs": 4500,
+      "timestamp": "2026-07-17T06:42:41.337601Z"
+    },
+    {
+      "id": "attempt-2",
+      "twisterId": "classic-1",
+      "twisterText": "Peter Piper picked a peck of pickled peppers. A peck of pickled peppers Peter Piper picked.",
+      "spokenText": "Peter Piper picked a peck of pickle peppers. A peck of pickled peppers Peter Piper pick.",
+      "accuracy": 88,
+      "wpm": 75,
+      "durationMs": 6200,
+      "timestamp": "2026-07-18T06:42:41.337601Z"
+    },
+    {
+      "id": "attempt-3",
+      "twisterId": "classic-3",
+      "twisterText": "How much wood would a woodchuck chuck if a woodchuck could chuck wood?",
+      "spokenText": "How much wood wood a woodchuck chuck if a woodchuck can chuck wood",
+      "accuracy": 81,
+      "wpm": 68,
+      "durationMs": 8000,
+      "timestamp": "2026-07-19T06:42:41.337601Z"
+    },
+    {
+      "id": "attempt-4",
+      "twisterId": "classic-4",
+      "twisterText": "Six sleek swans swam swiftly southwards.",
+      "spokenText": "Six slick swans swam swiftly southwards.",
+      "accuracy": 97,
+      "wpm": 92,
+      "durationMs": 3100,
+      "timestamp": "2026-07-20T06:42:41.337601Z"
+    },
+    {
+      "id": "attempt-5",
+      "twisterId": "classic-2",
+      "twisterText": "She sells seashells by the seashore. The shells she sells are surely seashells.",
+      "spokenText": "She sells seashells by the seashore. The shells she sells are surely seashells.",
+      "accuracy": 100,
+      "wpm": 104,
+      "durationMs": 3800,
+      "timestamp": "2026-07-20T06:42:41.337601Z"
+    }
+  ]
+}
