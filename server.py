@@ -135,6 +135,27 @@ def health():
         }
     })
 
+@app.route("/style.css", methods=["GET"])
+def serve_fallback_style():
+    return send_from_directory(os.getcwd(), "style.css")
+
+@app.route("/simple.html", methods=["GET"])
+def serve_simple_html():
+    return send_from_directory(os.getcwd(), "simple.html")
+
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>", methods=["GET"])
+def serve_index(path):
+    static_file = os.path.join(app.static_folder, path)
+    if path and os.path.exists(static_file):
+        return send_from_directory(app.static_folder, path)
+
+    index_file = os.path.join(app.static_folder, "index.html")
+    if os.path.exists(index_file):
+        return send_from_directory(app.static_folder, "index.html")
+
+    return send_from_directory(os.getcwd(), "simple.html")
+
 @app.route("/api/twisters", methods=["GET"])
 def get_twisters():
     """Retrieves all tongue twisters, with optional language and query filtering."""
