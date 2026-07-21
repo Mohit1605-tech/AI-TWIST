@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Tongue Twister Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">TWIST.AI</div>
+        <nav class="nav-links">
+          <span class="nav-item active">Generator</span>
+          <span class="nav-item">Vocal Arena</span>
+          <span class="nav-item">Library</span>
+          <span class="nav-item">Diagnostics</span>
+        </nav>
+      </header>
+
+      <main class="content">
+        <section class="hero-card">
+          <div class="hero-label">System Notification</div>
+          <div class="hero-alert">Gemini API failed to generate a twister. Try again.</div>
+          <div class="hero-panel">
+            <h1>Concoct Tongue Twister</h1>
+            <p>Powered by server-side Gemini Flash Llama pipeline</p>
+            <form class="generator-form">
+              <div class="field-row">
+                <label>Target Language</label>
+                <select><option>English</option><option>Spanish</option><option>French</option><option>German</option><option>Hindi</option><option>Tamil</option><option>Telugu</option><option>Kannada</option></select>
+              </div>
+              <div class="field-row">
+                <label>Vocal Difficulty</label>
+                <select><option>Easy Peasy</option><option selected>Mind Bender</option><option>Jaw Breaker</option></select>
+              </div>
+              <div class="field-row">
+                <label>Conceptual Theme</label>
+                <select><option>Animals</option><option>Food</option><option>SciFi</option><option>General</option><option>Technology</option><option>Nature</option><option>Space</option></select>
+              </div>
+              <div class="field-row">
+                <label>Target Sound Accent</label>
+                <input type="text" placeholder="e.g. S, Sh, P, Tr" />
+              </div>
+              <button type="button">Generate Linguistic Challenge</button>
+            </form>
+          </div>
+        </section>
+
+        <aside class="sidebar-card">
+          <h2>Lately Concocted</h2>
+          <div class="library-item">
+            <span class="label">Medium</span>
+            <span class="tag">Kannada</span>
+            <p>«ಕಾಗೆ ಪುಕ್ಕ ಗುಬ್ಬಿ ಪುಕ್ಕ»</p>
+            <p class="meta">Sound: P (pukka)</p>
+          </div>
+          <div class="library-item">
+            <span class="label">Medium</span>
+            <span class="tag">German</span>
+            <p>«Fischers Fritz fischt frische Fische, frische Fische fischt Fischers Fritz.»</p>
+            <p class="meta">Sound: F</p>
+          </div>
+          <div class="library-item">
+            <span class="label">Medium</span>
+            <span class="tag">French</span>
+            <p>«Un chasseur sachant chasser doit savoir chasser sans son chien.»</p>
+            <p class="meta">Sound: Ch / S</p>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="footer">© 2026 Twist.ai. All rights reserved.</footer>
+    </div>
+  </body>
+</html>
