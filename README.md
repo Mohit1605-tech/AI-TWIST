@@ -12,5 +12,5 @@ AI Tongue Twister Generator is an AI-based web application that creates unique a
 
 ## Run Globally
 
-https://ai-tongue-twister-generator.ai.studio
+https://ai-twist-3.onrender.com
 
