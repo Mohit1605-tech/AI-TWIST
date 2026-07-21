@@ -1,20 +1,16 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
-
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/8898dec6-2587-4960-8ff8-29fd9b6a48ed
-
-## Run Locally
-
-**Prerequisites:**  Node.js
+# AI Tongue Twister Generator
+AI Tongue Twister Generator is an AI-based web application that creates unique and engaging tongue twisters from user-provided words, themes, or difficulty levels. Built using NLP and LLMs, it helps users improve pronunciation, speech fluency, and language skills while making learning fun and interactive.
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Features
+- Generate custom tongue twisters
+- Choose difficulty levels
+- Topic-based generation
+- Instant AI-powered results
+- User-friendly interface
+
+
+## Run Globally
+
+https://ai-tongue-twister-generator.ai.studio
+
